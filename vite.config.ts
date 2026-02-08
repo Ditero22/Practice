@@ -5,7 +5,7 @@ import path from "path"
 
 // https://vite.dev/config/
 export default defineConfig({
-  base: "/Practice.git/",
+  base: "/Practice/",
   plugins: [react(), tailwindcss()],
   resolve: {
     alias: {
