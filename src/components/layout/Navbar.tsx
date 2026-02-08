@@ -50,17 +50,17 @@ const Navbar: React.FC<NavbarProps> = ({ hideExtras = false, toggleSidebar }) =>
 
             {/* User */}
             <User className="cursor-pointer hover:text-blue-500" />
-          </div>
-        )}
 
-        {/* Login Button (only if not logged in) */}
-        {!user && isLanding && (
-          <button
-            className="ml-4 px-4 py-1 rounded text-white bg-green-500"
-            onClick={() => navigate("/login")}
-          >
-            Login
-          </button>
+            {/* Login Button (desktop only) */}
+            {!user && isLanding && (
+              <button
+                className="ml-4 px-4 py-1 rounded text-white bg-green-500"
+                onClick={() => navigate("/login")}
+              >
+                Login
+              </button>
+            )}
+          </div>
         )}
 
         {/* Mobile Hamburger */}
@@ -75,17 +75,32 @@ const Navbar: React.FC<NavbarProps> = ({ hideExtras = false, toggleSidebar }) =>
       {/* Mobile Dropdown for extra menu */}
       {open && !hideExtras && (
         <div className="md:hidden px-6 pb-4 flex flex-col gap-3">
+          {/* Search input */}
           <input
             type="text"
             placeholder="Search..."
             className="border rounded-lg px-3 py-2"
           />
+
+          {/* Notifications */}
           <button className="flex items-center gap-2">
             <Bell size={18} /> Notifications
           </button>
+
+          {/* Profile */}
           <button className="flex items-center gap-2">
             <User size={18} /> Profile
           </button>
+
+          {/* Login button (mobile only) */}
+          {!user && isLanding && (
+            <button
+              className="bg-green-500 text-white px-4 py-2 rounded mt-2"
+              onClick={() => navigate("/login")}
+            >
+              Login
+            </button>
+          )}
         </div>
       )}
     </nav>
