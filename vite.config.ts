@@ -5,7 +5,6 @@ import path from "path"
 
 // https://vite.dev/config/
 export default defineConfig({
-  base: "/https://ditero22.github.io/Practice/",
   plugins: [react(), tailwindcss()],
   resolve: {
     alias: {
